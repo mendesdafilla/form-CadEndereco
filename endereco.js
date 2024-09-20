@@ -15,3 +15,12 @@ const LimparFormulario = () =>{
 const eNumero = (numero) => /^[0-9]+$/.test(numero);
 //verificar o tamanho do cep
 const cepValido = (cep) => cep.length == 8 && eNumero(cep);
+
+//funcao para preencher campos realacionados ao CEP
+const preencherFormulario = (endereco) =>{
+    document.getElementById('logradouro').value = endereco. logradouro; 
+    //coloca o valor de logradouro da API dentro do campo logradouro do fomulario
+    document.getElementById('Bairro').value = endereco.Bairro; 
+    document.getElementById('localidade').value = endereco.localidade; 
+    document.getElementById('uf').value = endereco. uf; 
+}

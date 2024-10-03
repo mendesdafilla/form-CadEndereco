@@ -1,6 +1,7 @@
 # CADASTRO DE ENDEREÇO
 O objetivo deste trabalho é desenvolver um projeto funcional de Cadastro de Endereço, aplicando os conhecimentos adquiridos nas aulas. O projeto consistirá em um formulário que permite a coleta de dados de endereço, com a implementação de uma consulta à API dos Correios para validação do CEP. O trabalho será realizado em conjunto entre alunos e professor, e servirá como base para um projeto futuro mais complexo.
 
+![gif](cep.gif)
 # O QUE FAZ ESSE CÓDIGO?
 Este código JavaScript interage com a API do ViaCEP para buscar informações sobre um endereço a partir de um CEP (Código de Endereçamento Postal) digitado pelo usuário. Quando você digita um CEP válido e sai do campo, o código automaticamente busca as informações correspondentes (logradouro, bairro, cidade, estado) e preenche os campos de um formulário.
 

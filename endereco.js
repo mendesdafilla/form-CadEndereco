@@ -36,7 +36,7 @@ const pesquisarCEP = async() => {
 
         if(addres.hasOwnProperty('erro')){
              alert('CEP nao encontrado');
-        }else{
+   c     }else{
             preencherFormulario(addres);
         }  
     }else{

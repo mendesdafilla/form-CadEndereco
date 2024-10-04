@@ -25,6 +25,48 @@ Exibe uma mensagem de alerta caso o CEP seja inválido ou não seja encontrado.
 * Associar o evento:
 Associe o evento `focusout` ao campo do CEP para que a função de pesquisa seja chamada quando o usuário sair do campo.
 
+
+const pesquisarCEP = async() => {:
+
+const pesquisarCEP: Declara uma constante chamada pesquisarCEP para armazenar uma função assíncrona.
+
+async: Indica que a função irá realizar operações assíncronas, como a requisição à API. Isso permite que outras partes do código continuem a execução enquanto a requisição é feita.
+() => {...}: Define a função de forma concisa, utilizando uma arrow function.
+LimparFormulario();:
+
+Chama uma função (não mostrada no código) chamada LimparFormulario(). Essa função provavelmente limpa todos os campos de um formulário HTML antes de preencher com os novos dados, garantindo que não haja informações antigas.
+const url =https://viacep.com.br/ws/${cep.value}/json/;:
+
+Cria uma constante url para armazenar a URL completa da requisição à API do ViaCEP.
+cep.value: Supõe que cep seja um elemento HTML (provavelmente um input) que contém o CEP digitado pelo usuário. cep.value acessa o valor desse elemento.
+A URL é construída dinamicamente, inserindo o CEP informado pelo usuário na parte variável da URL.
+if(cepValido(cep.value)){:
+
+Verifica se o CEP informado é válido.
+cepValido(cep.value): Chama uma função (não mostrada no código) chamada cepValido() para validar o formato do CEP. Essa função provavelmente verifica se o CEP possui o número correto de dígitos e se contém apenas números.
+const dados  = await fetch(url);:
+
+Se o CEP for válido, realiza uma requisição à API do ViaCEP utilizando a função fetch.
+await: Pausa a execução da função até que a promessa retornada por fetch seja resolvida, ou seja, até que os dados sejam recebidos da API.
+dados: Armazena a resposta da API em uma constante.
+const addres = await dados.json();:
+
+Converte a resposta da API (que está em formato JSON) para um objeto JavaScript e armazena em addres.
+dados.json(): É um método do objeto Response que retorna uma promessa que será resolvida com o objeto JavaScript correspondente ao JSON.
+if(addres.hasOwnProperty('erro')){:
+
+Verifica se a resposta da API contém uma propriedade erro. Se sim, significa que o CEP não foi encontrado.
+hasOwnProperty(): É um método de objetos JavaScript que verifica se um objeto possui uma determinada propriedade.
+alert('CEP nao encontrado');:
+
+Se o CEP não foi encontrado, exibe uma mensagem de alerta para o usuário.
+else{ preencherFormulario(addres); }:
+
+Se o CEP foi encontrado, chama a função preencherFormulario() para preencher os campos do formulário com as informações do endereço contidas em addres.
+}else{ alert('CEP Incorreto'); }:
+
+Se o CEP não for válido, exibe uma mensagem de alerta informando que o CEP está incorreto.
+
 # EXEMPLO DE HTML:
 ```html
 <input type="text" id="cep" placeholder="Digite o CEP">
